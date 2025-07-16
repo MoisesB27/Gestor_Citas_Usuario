@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\TestimonialController;
 
 // Ruta pública para login
 Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -26,6 +27,9 @@ $controllers = [
 ];
 
 // RUTAS PÚBLICAS: Esta ruta habilita el poder hacer get, show;
+
+Route::get('/testimonios', [TestimonialController::class, 'index', 'store', 'show']); // Ruta pública para testimonios
+
 foreach ($controllers as $routeName => $controller) {
     $controllerClass = "App\\Http\\Controllers\\Api\\{$controller}";
 
@@ -35,6 +39,7 @@ foreach ($controllers as $routeName => $controller) {
         logger("Controlador no encontrado: {$controllerClass}");
     }
 }
+
 
 // RUTAS PRIVADAS: Esta ruta habilita el poder hacer put, delete, post;
 Route::middleware('auth:sanctum')->group(function () use ($controllers) {
