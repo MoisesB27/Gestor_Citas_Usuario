@@ -24,14 +24,24 @@ $controllers = [
     'appointment-access-logs' => 'AppointmentAccessLogController',
 ];
 
+// RUTAS PÚBLICAS: Esta ruta habilita el poder hacer get, show;
+foreach ($controllers as $routeName => $controller) {
+    $controllerClass = "App\\Http\\Controllers\\Api\\{$controller}";
+
+    if (class_exists($controllerClass)) {
+        Route::resource($routeName, $controllerClass)->only(['index', 'show']);
+    } else {
+        logger("Controlador no encontrado: {$controllerClass}");
+    }
+}
+
+// RUTAS PRIVADAS: Esta ruta habilita el poder hacer put, delete, post;
 Route::middleware('auth:sanctum')->group(function () use ($controllers) {
     foreach ($controllers as $routeName => $controller) {
         $controllerClass = "App\\Http\\Controllers\\Api\\{$controller}";
 
         if (class_exists($controllerClass)) {
-            Route::resource($routeName, $controllerClass)->except(['create', 'edit']);
-        } else {
-            logger(" Controlador no encontrado: {$controllerClass}");
+            Route::resource($routeName, $controllerClass)->only(['store', 'update', 'destroy']);
         }
     }
 });
