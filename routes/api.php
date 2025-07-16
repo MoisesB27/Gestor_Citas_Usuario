@@ -20,6 +20,7 @@ $controllers = [
     'tramites'                => 'TramiteController',
     'services'                => 'ServiceController',
     'appointments'            => 'AppointmentController',
+    'History'                 => 'HistoryController',
     'servicios'               => 'ServicioController',
     'appointment-access-logs' => 'AppointmentAccessLogController',
 ];
@@ -45,3 +46,4 @@ Route::middleware('auth:sanctum')->group(function () use ($controllers) {
         }
     }
 });
+

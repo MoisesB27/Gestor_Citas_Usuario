@@ -33,6 +33,7 @@ class SessionController extends Controller
             'user_id'      => 'required|uuid|exists:users,id',
             'ip_address'   => 'nullable|ip',
             'user_agent'   => 'nullable|string',
+            'payload'      => 'nullable|string',
             'last_activity'=> 'required|integer',
         ]);
 
@@ -61,6 +62,7 @@ class SessionController extends Controller
         $validator = Validator::make($request->all(), [
             'ip_address'    => 'nullable|ip',
             'user_agent'    => 'nullable|string',
+            'payload'       => 'nullable|string',
             'last_activity' => 'nullable|integer',
         ]);
 
