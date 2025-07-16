@@ -21,6 +21,9 @@ class UserProfile extends Model
         'avatar_url',
         'phone',
         'date_of_birth',
+        'cedula',
+        'sexo',
+        'direccion',
     ];
 
     protected $casts = [

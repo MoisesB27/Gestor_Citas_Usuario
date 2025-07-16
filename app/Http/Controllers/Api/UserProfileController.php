@@ -30,6 +30,9 @@ class UserProfileController extends Controller
             'avatar_url'  => 'nullable|string',
             'phone'       => 'nullable|string|max:20',
             'date_of_birth' => 'nullable|date',
+            'cedula'      => 'nullable|string|max:20',
+            'sexo'        => 'nullable|string|max:10',
+            'direccion'   => 'nullable|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -57,6 +60,9 @@ class UserProfileController extends Controller
             'avatar_url'  => 'nullable|string',
             'phone'       => 'nullable|string|max:20',
             'date_of_birth' => 'nullable|date',
+            'cedula'      => 'nullable|string|max:20',
+            'sexo'        => 'nullable|string|max:10',
+            'direccion'   => 'nullable|string|max:255',
         ]);
 
         if ($validator->fails()) {
