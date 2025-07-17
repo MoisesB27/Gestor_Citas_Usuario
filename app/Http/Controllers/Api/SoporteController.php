@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Soporte_Tecnico;
+use App\Models\Soporte;
 use Illuminate\Http\Request;
 
-class Soporte_TecnicoController extends Controller
+class SoporteController extends Controller
 
 {
     public function create()
@@ -22,7 +22,7 @@ class Soporte_TecnicoController extends Controller
             'descripcion' => 'required|string',
         ]);
 
-        Soporte_Tecnico::create($request->all());
+        Soporte::create($request->all());
 
         return redirect()->back()->with('success', '¡Ticket enviado exitosamente!');
     }

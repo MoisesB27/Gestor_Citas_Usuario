@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Soporte_Tecnico extends Model
+class Soporte extends Model
 
 {
     protected $fillable = [

@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTicketsTable extends Migration
+class CreateSoporteTable extends Migration
 {
     public function up()
     {
-        Schema::create('soporte_tecnico', function (Blueprint $table) {
+        Schema::create('soporte', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_completo');
             $table->string('correo_electronico');
@@ -20,6 +20,6 @@ class CreateTicketsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::dropIfExists('soporte');
     }
-};
+}

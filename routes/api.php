@@ -2,10 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PuntoGobController;
+use App\Http\Controllers\SoporteController;
 use App\Http\Controllers\TestimonialController;
 
 // Ruta pública para login
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/tickets/create', [SoporteController::class, 'create'])->name('tickets.create');
+Route::post('/tickets', [SoporteController::class, 'store'])->name('tickets.store');
+Route::apiResource('punto-gobs', PuntoGobController::class)->only(['index', 'store']);
 
 // Listado de controladores del sistema
 $controllers = [
@@ -51,4 +56,3 @@ Route::middleware('auth:sanctum')->group(function () use ($controllers) {
         }
     }
 });
-
